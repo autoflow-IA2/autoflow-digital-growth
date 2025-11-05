@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bot, Calendar, MessageSquare, Share2, Layout, Workflow, Zap, Sparkles } from "lucide-react";
-import heroImage from "@/assets/hero-tech-bg.jpg";
+import heroImage from "@/assets/hero-ai-art.png";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 
