@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bot, Calendar, MessageSquare, Share2, Layout, Workflow, Zap, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-tech-bg.jpg";
-import { Suspense, lazy } from "react";
+import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 // Nova logo do Supabase
 const logoUrl = "https://iygvxnnumykapvaufncm.supabase.co/storage/v1/object/public/logo/logonova-Photoroom.png";
@@ -70,9 +71,9 @@ const Index = () => {
               </div>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in mb-6">
-              <span className="gradient-text">Automatize</span> seus processos e <br />
-              <span className="gradient-text">escale</span> seu negócio com <br />
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in mb-6">
+              <span className="gradient-text">Automatize</span> seus processos e <br className="hidden sm:block" />
+              <span className="gradient-text">escale</span> seu negócio com <br className="hidden sm:block" />
               <span className="gradient-text">Inteligência Artificial</span>
             </h1>
 
@@ -80,28 +81,29 @@ const Index = () => {
               Em <span className="font-bold text-accent">30 minutos</span> nossa equipe irá analisar estrategicamente todos os processos do seu negócio e entregar um <span className="font-bold text-accent">plano de ação</span> para automatizar atendimento, agendamentos, CRM e muito mais.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in mb-8">
               <Button 
                 variant="gradient" 
-                size="2xl"
+                size="xl"
                 onClick={scrollToCTA}
-                className="w-full sm:w-auto text-xl font-bold animate-glow"
+                className="w-full sm:w-auto text-base sm:text-lg font-bold animate-glow shadow-2xl"
               >
-                <Zap className="mr-3 h-6 w-6" />
-                Quero Automatizar Meu Negócio
+                <Zap className="mr-2 h-5 w-5" />
+                Agendar Consultoria Gratuita
               </Button>
               <Button 
-                variant="glass" 
+                variant="outline" 
                 size="xl"
-                className="w-full sm:w-auto text-lg font-semibold"
+                onClick={scrollToCTA}
+                className="w-full sm:w-auto text-base sm:text-lg font-semibold bg-white/95 hover:bg-white text-primary border-2 border-white hover:scale-105 transition-all"
               >
                 <MessageSquare className="mr-2 h-5 w-5" />
-                Ver Demonstração
+                Falar com Especialista
               </Button>
             </div>
 
-            <div className="inline-flex items-center gap-3 px-8 py-4 glass rounded-xl animate-pulse shadow-xl border-2 border-accent/30">
-              <span className="text-lg md:text-xl font-bold text-white">🚨 87% das vagas foram preenchidas - Garanta a sua!</span>
+            <div className="inline-flex flex-col sm:flex-row items-center gap-3 px-6 sm:px-8 py-4 glass rounded-xl animate-pulse shadow-xl border-2 border-accent/30">
+              <span className="text-base sm:text-lg md:text-xl font-bold text-white text-center">🚨 Apenas 5 vagas restantes esta semana!</span>
             </div>
           </div>
         </div>
@@ -304,6 +306,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+
       {/* O Que Você Leva Section */}
       <section className="py-20 md:py-32 bg-gradient-to-b from-background via-primary/5 to-background relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.05),transparent_70%)]" />
@@ -415,7 +420,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Final Section */}
+      {/* CTA Final Section with Form */}
       <section id="cta-final" className="py-20 md:py-32 relative overflow-hidden">
         <div 
           className="absolute inset-0"
@@ -436,43 +441,35 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-10 text-white">
-            <div className="inline-block animate-scale-in">
-              <div className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full border border-white/30 mb-8 shadow-[var(--shadow-glow)]">
-                <Sparkles className="w-5 h-5 text-accent" />
-                <span className="text-sm font-semibold">Vagas Limitadas</span>
+          <div className="max-w-4xl mx-auto space-y-12">
+            {/* Header */}
+            <div className="text-center space-y-8 text-white">
+              <div className="inline-block animate-scale-in">
+                <div className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full border border-white/30 mb-4 shadow-[var(--shadow-glow)]">
+                  <Sparkles className="w-5 h-5 text-accent" />
+                  <span className="text-sm font-semibold">Apenas 5 Vagas Restantes</span>
+                </div>
               </div>
+              
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight animate-fade-in">
+                Pronto para <span className="gradient-text">automatizar</span> e <br className="hidden sm:block" />
+                <span className="gradient-text">escalar</span> seu negócio?
+              </h2>
+              <p className="text-lg sm:text-xl md:text-2xl text-white/95 leading-relaxed max-w-3xl mx-auto animate-fade-in">
+                Agende agora sua <span className="font-bold text-accent">consultoria estratégica gratuita</span> de 30 minutos e receba um plano completo de automação personalizado para seu negócio.
+              </p>
             </div>
-            
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in">
-              Pronto para <span className="gradient-text">automatizar</span> e <br />
-              <span className="gradient-text">escalar</span> seu negócio?
-            </h2>
-            <p className="text-xl md:text-2xl text-white/95 leading-relaxed max-w-3xl mx-auto animate-fade-in">
-              Agende agora sua <span className="font-bold text-accent">consultoria estratégica gratuita</span> e descubra como a IA pode transformar seus processos e multiplicar seus resultados.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in">
-              <Button 
-                variant="gradient" 
-                size="2xl"
-                className="w-full sm:w-auto text-xl font-bold animate-glow shadow-2xl hover:shadow-[0_20px_60px_-10px_rgba(255,255,255,0.3)]"
-              >
-                <Zap className="mr-3 h-6 w-6" />
-                Quero Minha Consultoria Gratuita Agora
-              </Button>
-              <Button 
-                variant="glass" 
-                size="xl"
-                className="w-full sm:w-auto text-lg font-semibold"
-              >
-                <MessageSquare className="mr-2 h-5 w-5" />
-                Falar com Especialista
-              </Button>
+
+            {/* Lead Capture Form */}
+            <div className="animate-fade-in">
+              <LeadCaptureForm />
             </div>
-            
-            <div className="inline-flex items-center gap-3 px-8 py-5 glass rounded-2xl animate-pulse shadow-2xl border-2 border-accent/30">
-              <span className="text-lg md:text-xl font-bold">🚨 87% das vagas foram preenchidas - Garanta a sua!</span>
+
+            {/* Urgency Badge */}
+            <div className="text-center animate-fade-in">
+              <div className="inline-flex flex-col sm:flex-row items-center gap-3 px-6 sm:px-8 py-4 glass rounded-xl animate-pulse shadow-2xl border-2 border-accent/30">
+                <span className="text-base sm:text-lg font-bold text-white text-center">⚡ Resposta em até 30 minutos • 100% Gratuito • Sem Compromisso</span>
+              </div>
             </div>
           </div>
         </div>
