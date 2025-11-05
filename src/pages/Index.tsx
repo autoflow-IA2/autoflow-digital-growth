@@ -25,20 +25,6 @@ const Index = () => {
           backgroundPosition: "center",
         }}
       >
-        {/* Dark overlay for better text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/85 via-[#9333EA]/80 to-[#A855F7]/85" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.08),transparent_50%)]" />
-        
-        {/* Animated tech elements - floating particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-3 h-3 bg-white/60 rounded-full animate-float blur-[1px]" style={{ animationDelay: '0s' }} />
-          <div className="absolute top-40 right-20 w-4 h-4 bg-purple-300/70 rounded-full animate-float blur-[1px]" style={{ animationDelay: '0.5s' }} />
-          <div className="absolute bottom-32 left-1/4 w-3 h-3 bg-white/50 rounded-full animate-float blur-[1px]" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-purple-200/60 rounded-full animate-float blur-[1px]" style={{ animationDelay: '1.5s' }} />
-          <div className="absolute top-1/2 left-1/3 w-2 h-2 bg-white/70 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
-          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-purple-100/50 rounded-full animate-pulse" style={{ animationDelay: '2.5s' }} />
-        </div>
-        
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-5xl mx-auto text-center text-white space-y-6 sm:space-y-8">
             
