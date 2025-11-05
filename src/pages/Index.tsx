@@ -16,77 +16,94 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
+      {/* Hero Section - Novo Design com Arte de IA */}
       <section 
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(139, 69, 255, 0.95), rgba(179, 136, 255, 0.9)), url(${heroImage})`,
+          backgroundImage: `url(${heroImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,rgba(139,69,255,0.2)_100%)]" />
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/85 via-[#9333EA]/80 to-[#A855F7]/85" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.08),transparent_50%)]" />
         
-        {/* Animated tech elements */}
+        {/* Animated tech elements - floating particles */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-3 h-3 bg-accent rounded-full animate-float" style={{ animationDelay: '0s' }} />
-          <div className="absolute top-40 right-20 w-4 h-4 bg-primary-glow rounded-full animate-float" style={{ animationDelay: '0.5s' }} />
-          <div className="absolute bottom-32 left-1/4 w-3 h-3 bg-accent rounded-full animate-float" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-primary-glow rounded-full animate-float" style={{ animationDelay: '1.5s' }} />
-          <div className="absolute top-1/2 left-1/3 w-2 h-2 bg-white/60 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
-          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '2.5s' }} />
+          <div className="absolute top-20 left-10 w-3 h-3 bg-white/60 rounded-full animate-float blur-[1px]" style={{ animationDelay: '0s' }} />
+          <div className="absolute top-40 right-20 w-4 h-4 bg-purple-300/70 rounded-full animate-float blur-[1px]" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute bottom-32 left-1/4 w-3 h-3 bg-white/50 rounded-full animate-float blur-[1px]" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-purple-200/60 rounded-full animate-float blur-[1px]" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-1/2 left-1/3 w-2 h-2 bg-white/70 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-purple-100/50 rounded-full animate-pulse" style={{ animationDelay: '2.5s' }} />
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white space-y-8">
-            <div className="flex justify-center items-center animate-fade-in mb-4">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="max-w-5xl mx-auto text-center text-white space-y-6 sm:space-y-8">
+            
+            {/* Logo Section - Integrada na arte */}
+            <div className="flex justify-center items-center animate-fade-in mb-6 sm:mb-8">
               <img 
                 src={logoUrl} 
-                alt="AutoFlow IA² - Logo da empresa de automação com inteligência artificial" 
-                className="h-32 sm:h-40 md:h-48 lg:h-52 transition-transform duration-300 hover:scale-105" 
+                alt="AutoFlow IA² - Automação Inteligente com IA" 
+                className="h-28 sm:h-36 md:h-44 lg:h-48 transition-transform duration-300 hover:scale-105" 
                 loading="eager"
-                width="208"
-                height="208"
+                width="192"
+                height="192"
                 aria-label="Logo AutoFlow IA²"
                 style={{ 
                   backgroundColor: 'transparent',
-                  filter: 'drop-shadow(0 0 16px white) drop-shadow(0 0 32px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 48px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 64px rgba(255, 255, 255, 0.3))'
+                  filter: 'drop-shadow(0 4px 20px rgba(255, 255, 255, 0.7)) drop-shadow(0 8px 40px rgba(139, 92, 246, 0.4)) brightness(1.1)',
                 }}
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                   const fallback = document.createElement('div');
-                  fallback.className = 'h-32 sm:h-40 md:h-48 lg:h-52 flex items-center justify-center bg-transparent px-8';
-                  fallback.innerHTML = '<span class="text-4xl font-bold gradient-text">AutoFlow IA²</span>';
+                  fallback.className = 'h-28 sm:h-36 md:h-44 lg:h-48 flex items-center justify-center bg-transparent px-8';
+                  fallback.innerHTML = '<span class="text-4xl sm:text-5xl md:text-6xl font-bold text-white" style="text-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);">AutoFlow IA²</span>';
                   target.parentNode?.insertBefore(fallback, target);
                 }}
               />
             </div>
 
+            {/* Slogan/Tagline - Badge estilizado */}
             <div className="inline-block animate-scale-in">
-              <div className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full border border-white/30 mb-8 shadow-[var(--shadow-glow)]">
-                <Sparkles className="w-5 h-5 text-accent" />
-                <span className="text-sm font-semibold text-white">Automação Inteligente com IA</span>
+              <div className="inline-flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 rounded-full border-2 border-white/40 backdrop-blur-md bg-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300" />
+                <span className="text-sm sm:text-base font-bold text-white tracking-wide" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
+                  Automação Inteligente com IA
+                </span>
               </div>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in mb-6">
-              <span className="gradient-text">Automatize</span> seus processos e <br className="hidden sm:block" />
-              <span className="gradient-text">escale</span> seu negócio com <br className="hidden sm:block" />
-              <span className="gradient-text">Inteligência Artificial</span>
+            {/* Headline Principal - Foco máximo */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight animate-fade-in px-4 sm:px-8" 
+                style={{ 
+                  textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 2px 10px rgba(0,0,0,0.3), 0 0 40px rgba(139,92,246,0.3)',
+                  letterSpacing: '-0.02em'
+                }}>
+              <span className="text-white">Automatize</span> seus processos e{' '}
+              <span className="text-white">escale</span> seu negócio com{' '}
+              <span className="block mt-2 text-yellow-300 font-black">
+                Inteligência Artificial
+              </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/95 leading-relaxed animate-fade-in max-w-4xl mx-auto mb-8">
-              Em <span className="font-bold text-accent">30 minutos</span> nossa equipe irá analisar estrategicamente todos os processos do seu negócio e entregar um <span className="font-bold text-accent">plano de ação</span> para automatizar atendimento, agendamentos, CRM e muito mais.
+            {/* Sub-headline/Descrição - Contexto claro */}
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 leading-relaxed animate-fade-in max-w-4xl mx-auto px-4 font-medium" 
+               style={{ textShadow: '0 2px 15px rgba(0,0,0,0.4), 0 1px 5px rgba(0,0,0,0.2)' }}>
+              Em <span className="font-extrabold text-yellow-300 text-xl sm:text-2xl md:text-3xl">30 minutos</span> nossa equipe irá analisar estrategicamente todos os processos do seu negócio e entregar um{' '}
+              <span className="font-extrabold text-yellow-300">plano de ação</span> para automatizar atendimento, agendamentos, CRM e muito mais.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in mb-8">
+            {/* CTAs - Chamadas para ação otimizadas */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in pt-4 sm:pt-6 px-4">
               <Button 
                 variant="gradient" 
                 size="xl"
                 onClick={scrollToCTA}
-                className="w-full sm:w-auto text-base sm:text-lg font-bold animate-glow shadow-2xl"
+                className="w-full sm:w-auto text-base sm:text-lg font-bold shadow-[0_10px_40px_rgba(139,92,246,0.6)] hover:shadow-[0_15px_50px_rgba(139,92,246,0.8)] hover:scale-105 transition-all duration-300"
               >
                 <Zap className="mr-2 h-5 w-5" />
                 Agendar Consultoria Gratuita
@@ -95,20 +112,23 @@ const Index = () => {
                 variant="outline" 
                 size="xl"
                 onClick={scrollToCTA}
-                className="w-full sm:w-auto text-base sm:text-lg font-semibold bg-white/95 hover:bg-white text-primary border-2 border-white hover:scale-105 transition-all"
+                className="w-full sm:w-auto text-base sm:text-lg font-bold bg-white hover:bg-white/95 text-purple-700 border-3 border-white hover:scale-105 transition-all duration-300 shadow-[0_8px_30px_rgba(255,255,255,0.3)]"
               >
                 <MessageSquare className="mr-2 h-5 w-5" />
                 Falar com Especialista
               </Button>
             </div>
 
-            <div className="inline-flex flex-col sm:flex-row items-center gap-3 px-6 sm:px-8 py-4 glass rounded-xl animate-pulse shadow-xl border-2 border-accent/30">
-              <span className="text-base sm:text-lg md:text-xl font-bold text-white text-center">🚨 Apenas 5 vagas restantes esta semana!</span>
+            {/* Urgency Badge - Escassez */}
+            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-xl backdrop-blur-md bg-red-500/90 border-2 border-red-300/50 animate-pulse shadow-[0_8px_30px_rgba(239,68,68,0.5)]">
+              <span className="text-base sm:text-lg md:text-xl font-black text-white text-center" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
+                🚨 Apenas 5 vagas restantes esta semana!
+              </span>
             </div>
           </div>
         </div>
 
-        {/* Bottom gradient */}
+        {/* Bottom gradient transition */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
