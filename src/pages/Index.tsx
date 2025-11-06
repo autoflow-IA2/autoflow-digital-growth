@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Bot, Calendar, MessageSquare, Share2, Layout, Workflow, Zap, Sparkles } from "lucide-react";
+import { Bot, Calendar, MessageSquare, Share2, Layout, Workflow, Zap, Sparkles, Smartphone, Phone, Wrench } from "lucide-react";
 import heroImage from "@/assets/hero-ai-art.png";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
@@ -135,6 +135,54 @@ const Index = () => {
                   <CardContent className="px-10 pb-10">
                     <CardDescription className="text-lg leading-relaxed font-medium">
                       Automação completa de processos internos conectando todas as ferramentas que você <span className="font-bold text-primary">já usa</span>.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection animation="fade-up" delay={0} speed="normal">
+                <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group rounded-2xl overflow-hidden h-full">
+                  <CardHeader className="pb-8 pt-10 px-10">
+                    <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                      <Smartphone className="w-10 h-10 text-white" />
+                    </div>
+                    <CardTitle className="text-3xl font-black gradient-text mb-4">Aplicativos Mobile</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-10 pb-10">
+                    <CardDescription className="text-lg leading-relaxed font-medium">
+                      Aplicativos nativos iOS e Android com IA integrada para oferecer uma experiência <span className="font-bold text-primary">personalizada</span> aos seus clientes, aumentando engajamento e fidelização.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection animation="fade-up" delay={100} speed="normal">
+                <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group rounded-2xl overflow-hidden h-full">
+                  <CardHeader className="pb-8 pt-10 px-10">
+                    <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                      <Phone className="w-10 h-10 text-white" />
+                    </div>
+                    <CardTitle className="text-3xl font-black gradient-text mb-4">IA de Voz para Ligações</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-10 pb-10">
+                    <CardDescription className="text-lg leading-relaxed font-medium">
+                      Assistente virtual com IA de voz para atendimento <span className="font-bold text-primary">Inbound e Outbound</span>, realizando ligações automáticas, agendamentos e suporte com conversação natural e inteligente.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection animation="fade-up" delay={200} speed="normal">
+                <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group rounded-2xl overflow-hidden h-full">
+                  <CardHeader className="pb-8 pt-10 px-10">
+                    <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                      <Wrench className="w-10 h-10 text-white" />
+                    </div>
+                    <CardTitle className="text-3xl font-black gradient-text mb-4">Ferramentas Customisadas</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-10 pb-10">
+                    <CardDescription className="text-lg leading-relaxed font-medium">
+                      Desenvolvimento de ferramentas e sistemas <span className="font-bold text-primary">sob medida</span> para atender necessidades específicas do seu negócio, integradas com IA e automação para maximizar eficiência operacional.
                     </CardDescription>
                   </CardContent>
                 </Card>
