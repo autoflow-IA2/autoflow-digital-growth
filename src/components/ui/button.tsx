@@ -5,27 +5,27 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-base font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring focus-visible:ring-offset-4 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0 cursor-pointer",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:shadow-lg",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground hover:shadow-md",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:shadow-md",
-        ghost: "hover:bg-accent hover:text-accent-foreground hover:shadow-sm",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1",
+        outline: "border-2 border-input bg-background hover:bg-accent hover:text-accent-foreground hover:shadow-[var(--shadow-md)] hover:border-primary hover:-translate-y-1",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:shadow-[var(--shadow-md)] hover:-translate-y-1",
+        ghost: "hover:bg-accent hover:text-accent-foreground hover:shadow-[var(--shadow-sm)]",
         link: "text-primary underline-offset-4 hover:underline",
-        cta: "bg-gradient-to-r from-primary to-accent text-primary-foreground hover:from-primary/90 hover:to-accent/90 shadow-[var(--shadow-cta)] hover:shadow-[var(--shadow-cta)] hover:scale-105 font-semibold animate-glow",
-        glass: "glass text-primary-foreground hover:bg-primary/20 hover:shadow-[var(--shadow-glow)]",
-        gradient: "bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground hover:from-primary/90 hover:via-accent/90 hover:to-primary/90 shadow-lg hover:shadow-xl animate-shimmer",
+        cta: "bg-gradient-to-r from-primary via-secondary to-accent text-primary-foreground hover:from-primary/90 hover:via-secondary/90 hover:to-accent/90 shadow-[var(--shadow-cta)] hover:shadow-[var(--shadow-glow)] hover:scale-110 hover:-translate-y-2 font-bold",
+        glass: "glass text-primary hover:bg-primary/20 hover:shadow-[var(--shadow-glow)] hover:-translate-y-1",
+        gradient: "bg-gradient-to-r from-primary via-secondary to-primary text-primary-foreground hover:from-primary/90 hover:via-secondary/90 hover:to-primary/90 shadow-[var(--shadow-lg)] hover:shadow-[var(--shadow-xl)] hover:scale-105 hover:-translate-y-1 animate-shimmer font-bold",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3 text-xs",
-        lg: "h-11 rounded-md px-8 text-base",
-        xl: "h-14 rounded-lg px-10 text-lg font-semibold",
-        icon: "h-10 w-10",
-        "2xl": "h-16 rounded-xl px-12 text-xl font-bold",
+        default: "h-12 px-6 py-3 text-base",
+        sm: "h-10 rounded-lg px-4 text-sm",
+        lg: "h-14 rounded-xl px-10 text-lg",
+        xl: "h-16 rounded-2xl px-12 text-xl font-bold",
+        icon: "h-12 w-12",
+        "2xl": "h-20 rounded-2xl px-16 text-2xl font-black",
       },
     },
     defaultVariants: {

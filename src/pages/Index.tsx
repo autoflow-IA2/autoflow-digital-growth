@@ -16,98 +16,101 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section - Novo Design com Arte de IA */}
+      {/* Hero Section - Design Moderno e Impactante */}
       <section 
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-32 sm:py-40"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="max-w-5xl mx-auto text-center text-white space-y-6 sm:space-y-8">
+        {/* Overlay sutil para contraste */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-secondary/30 to-transparent" />
+        
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+          <div className="max-w-6xl mx-auto text-center text-white space-y-12 sm:space-y-16">
             
-            {/* Logo Section - Integrada na arte */}
-            <div className="flex justify-center items-center animate-fade-in mb-6 sm:mb-8">
+            {/* Logo Section - Destaque máximo */}
+            <div className="flex justify-center items-center animate-fade-in mb-8 sm:mb-12">
               <img 
                 src={logoUrl} 
                 alt="AutoFlow IA² - Automação Inteligente com IA" 
-                className="h-28 sm:h-36 md:h-44 lg:h-48 transition-transform duration-300 hover:scale-105" 
+                className="h-32 sm:h-40 md:h-52 lg:h-60 transition-all duration-500 hover:scale-110 hover:rotate-2" 
                 loading="eager"
-                width="192"
-                height="192"
+                width="240"
+                height="240"
                 aria-label="Logo AutoFlow IA²"
                 style={{ 
                   backgroundColor: 'transparent',
-                  filter: 'drop-shadow(0 4px 20px rgba(255, 255, 255, 0.7)) drop-shadow(0 8px 40px rgba(139, 92, 246, 0.4)) brightness(1.1)',
+                  filter: 'drop-shadow(0 8px 32px rgba(255, 255, 255, 0.8)) drop-shadow(0 16px 64px rgba(139, 92, 246, 0.6)) brightness(1.2)',
                 }}
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                   const fallback = document.createElement('div');
-                  fallback.className = 'h-28 sm:h-36 md:h-44 lg:h-48 flex items-center justify-center bg-transparent px-8';
-                  fallback.innerHTML = '<span class="text-4xl sm:text-5xl md:text-6xl font-bold text-white" style="text-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);">AutoFlow IA²</span>';
+                  fallback.className = 'h-32 sm:h-40 md:h-52 lg:h-60 flex items-center justify-center bg-transparent px-8';
+                  fallback.innerHTML = '<span class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white" style="text-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3);">AutoFlow IA²</span>';
                   target.parentNode?.insertBefore(fallback, target);
                 }}
               />
             </div>
 
-            {/* Slogan/Tagline - Badge estilizado */}
+            {/* Slogan/Tagline - Badge destaque */}
             <div className="inline-block animate-scale-in">
-              <div className="inline-flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 rounded-full border-2 border-white/40 backdrop-blur-md bg-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
-                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300" />
-                <span className="text-sm sm:text-base font-bold text-white tracking-wide" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
+              <div className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl border-2 border-white/50 backdrop-blur-xl bg-white/15 shadow-2xl hover:scale-105 transition-all duration-300">
+                <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 text-accent animate-pulse" />
+                <span className="text-lg sm:text-xl lg:text-2xl font-extrabold text-white tracking-wide" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.5)' }}>
                   Automação Inteligente com IA
                 </span>
               </div>
             </div>
 
-            {/* Headline Principal - Foco máximo */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight animate-fade-in px-4 sm:px-8" 
+            {/* Headline Principal - Impacto máximo */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] animate-fade-in px-4 sm:px-8 max-w-5xl mx-auto" 
                 style={{ 
-                  textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 2px 10px rgba(0,0,0,0.3), 0 0 40px rgba(139,92,246,0.3)',
-                  letterSpacing: '-0.02em'
+                  textShadow: '0 8px 32px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.4), 0 0 60px rgba(139,92,246,0.4)',
+                  letterSpacing: '-0.03em'
                 }}>
               <span className="text-white">Automatize</span> seus processos e{' '}
               <span className="text-white">escale</span> seu negócio com{' '}
-              <span className="block mt-2 text-yellow-300 font-black">
+              <span className="block mt-4 sm:mt-6 bg-gradient-to-r from-accent via-yellow-200 to-accent bg-clip-text text-transparent animate-shimmer" style={{ textShadow: 'none' }}>
                 Inteligência Artificial
               </span>
             </h1>
 
-            {/* Sub-headline/Descrição - Contexto claro */}
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 leading-relaxed animate-fade-in max-w-4xl mx-auto px-4 font-medium" 
-               style={{ textShadow: '0 2px 15px rgba(0,0,0,0.4), 0 1px 5px rgba(0,0,0,0.2)' }}>
-              Em <span className="font-extrabold text-yellow-300 text-xl sm:text-2xl md:text-3xl">30 minutos</span> nossa equipe irá analisar estrategicamente todos os processos do seu negócio e entregar um{' '}
-              <span className="font-extrabold text-yellow-300">plano de ação</span> para automatizar atendimento, agendamentos, CRM e muito mais.
+            {/* Sub-headline/Descrição - Clareza e impacto */}
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/95 leading-[1.6] animate-fade-in max-w-5xl mx-auto px-4 font-semibold" 
+               style={{ textShadow: '0 4px 24px rgba(0,0,0,0.5), 0 2px 12px rgba(0,0,0,0.3)' }}>
+              Em <span className="font-black text-accent text-2xl sm:text-3xl md:text-4xl lg:text-5xl">30 minutos</span> nossa equipe irá analisar estrategicamente todos os processos do seu negócio e entregar um{' '}
+              <span className="font-black text-accent">plano de ação</span> para automatizar atendimento, agendamentos, CRM e muito mais.
             </p>
 
-            {/* CTAs - Chamadas para ação otimizadas */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in pt-4 sm:pt-6 px-4">
+            {/* CTAs - Destaque máximo */}
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center items-center animate-fade-in pt-8 sm:pt-12 px-4">
               <Button 
                 variant="gradient" 
-                size="xl"
+                size="2xl"
                 onClick={scrollToCTA}
-                className="w-full sm:w-auto text-base sm:text-lg font-bold shadow-[0_10px_40px_rgba(139,92,246,0.6)] hover:shadow-[0_15px_50px_rgba(139,92,246,0.8)] hover:scale-105 transition-all duration-300"
+                className="w-full sm:w-auto min-w-[300px] text-xl sm:text-2xl font-black shadow-[0_16px_60px_rgba(139,92,246,0.7)] hover:shadow-[0_24px_80px_rgba(139,92,246,0.9)] hover:scale-110 hover:-translate-y-2 transition-all duration-300"
               >
-                <Zap className="mr-2 h-5 w-5" />
+                <Zap className="mr-3 h-7 w-7" />
                 Agendar Consultoria Gratuita
               </Button>
               <Button 
                 variant="outline" 
-                size="xl"
+                size="2xl"
                 onClick={scrollToCTA}
-                className="w-full sm:w-auto text-base sm:text-lg font-bold bg-white hover:bg-white/95 text-purple-700 border-3 border-white hover:scale-105 transition-all duration-300 shadow-[0_8px_30px_rgba(255,255,255,0.3)]"
+                className="w-full sm:w-auto min-w-[280px] text-xl sm:text-2xl font-black bg-white hover:bg-white/95 text-primary border-4 border-white hover:scale-110 hover:-translate-y-2 transition-all duration-300 shadow-[0_12px_40px_rgba(255,255,255,0.5)]"
               >
-                <MessageSquare className="mr-2 h-5 w-5" />
+                <MessageSquare className="mr-3 h-7 w-7" />
                 Falar com Especialista
               </Button>
             </div>
 
-            {/* Urgency Badge - Escassez */}
-            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-xl backdrop-blur-md bg-red-500/90 border-2 border-red-300/50 animate-pulse shadow-[0_8px_30px_rgba(239,68,68,0.5)]">
-              <span className="text-base sm:text-lg md:text-xl font-black text-white text-center" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
+            {/* Urgency Badge - Escassez destaque */}
+            <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-4 px-8 sm:px-12 py-5 sm:py-6 rounded-2xl backdrop-blur-xl bg-red-500 border-4 border-red-300/70 animate-pulse shadow-[0_12px_48px_rgba(239,68,68,0.6)] hover:scale-105 transition-all duration-300">
+              <span className="text-xl sm:text-2xl md:text-3xl font-black text-white text-center" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
                 🚨 Apenas 5 vagas restantes esta semana!
               </span>
             </div>
@@ -115,109 +118,110 @@ const Index = () => {
         </div>
 
         {/* Bottom gradient transition */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Automações que Oferecemos */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-background via-[var(--gradient-tech)] to-background relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(270_70%_50%_/_0.05),transparent_50%)]" />
+      <section className="py-32 md:py-48 bg-gradient-to-b from-background via-[var(--gradient-tech)] to-background relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(270_70%_50%_/_0.1),transparent_50%)]" />
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-4 border border-primary/20">
-                <Workflow className="w-4 h-4" />
-                <span className="text-sm font-semibold">Nossas Soluções</span>
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-24 sm:mb-32 space-y-8">
+              <div className="inline-flex items-center gap-3 px-8 py-4 bg-primary/15 text-primary rounded-2xl mb-6 border-2 border-primary/30 shadow-lg hover:scale-105 transition-all duration-300">
+                <Workflow className="w-6 h-6" />
+                <span className="text-lg font-bold">Nossas Soluções</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Automações que transformam seu negócio
+              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-foreground mb-8 leading-tight">
+                Automações que <span className="gradient-text">transformam</span> seu negócio
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-2xl sm:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-medium">
                 Integração completa de IA nos principais pontos de contato com seus clientes
               </p>
+              <div className="w-32 h-2 bg-gradient-to-r from-primary via-secondary to-accent mx-auto rounded-full" />
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-105 hover:shadow-[var(--shadow-card)] bg-gradient-to-br from-card to-primary/5 group animate-fade-in">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300 group-hover:scale-110">
-                    <Bot className="w-8 h-8 text-white" />
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12">
+              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
+                <CardHeader className="pb-8 pt-10 px-10">
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                    <Bot className="w-10 h-10 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold gradient-text mb-2">Atendimento Inteligente</CardTitle>
+                  <CardTitle className="text-3xl font-black gradient-text mb-4">Atendimento Inteligente</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    Chatbots com IA que atendem <span className="font-semibold text-primary">24/7</span>, entendem contexto e resolvem dúvidas automaticamente via WhatsApp, site e redes sociais.
+                <CardContent className="px-10 pb-10">
+                  <CardDescription className="text-lg leading-relaxed font-medium">
+                    Chatbots com IA que atendem <span className="font-bold text-primary">24/7</span>, entendem contexto e resolvem dúvidas automaticamente via WhatsApp, site e redes sociais.
                   </CardDescription>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-105 hover:shadow-[var(--shadow-card)] bg-gradient-to-br from-card to-primary/5 group animate-fade-in">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300 group-hover:scale-110">
-                    <Calendar className="w-8 h-8 text-white" />
+              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
+                <CardHeader className="pb-8 pt-10 px-10">
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                    <Calendar className="w-10 h-10 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold gradient-text mb-2">Agendamento Automático</CardTitle>
+                  <CardTitle className="text-3xl font-black gradient-text mb-4">Agendamento Automático</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    Sistema inteligente de agendamentos que sincroniza sua agenda, envia lembretes e reduz faltas em até <span className="font-semibold text-primary">80%</span>.
+                <CardContent className="px-10 pb-10">
+                  <CardDescription className="text-lg leading-relaxed font-medium">
+                    Sistema inteligente de agendamentos que sincroniza sua agenda, envia lembretes e reduz faltas em até <span className="font-bold text-primary">80%</span>.
                   </CardDescription>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-105 hover:shadow-[var(--shadow-card)] bg-gradient-to-br from-card to-primary/5 group animate-fade-in">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300 group-hover:scale-110">
-                    <Share2 className="w-8 h-8 text-white" />
+              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
+                <CardHeader className="pb-8 pt-10 px-10">
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                    <Share2 className="w-10 h-10 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold gradient-text mb-2">Redes Sociais Automatizadas</CardTitle>
+                  <CardTitle className="text-3xl font-black gradient-text mb-4">Redes Sociais Automatizadas</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    Publicações automáticas, respostas inteligentes e análise de engajamento para manter sua marca sempre <span className="font-semibold text-primary">ativa</span>.
+                <CardContent className="px-10 pb-10">
+                  <CardDescription className="text-lg leading-relaxed font-medium">
+                    Publicações automáticas, respostas inteligentes e análise de engajamento para manter sua marca sempre <span className="font-bold text-primary">ativa</span>.
                   </CardDescription>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-105 hover:shadow-[var(--shadow-card)] bg-gradient-to-br from-card to-primary/5 group animate-fade-in">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300 group-hover:scale-110">
-                    <MessageSquare className="w-8 h-8 text-white" />
+              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
+                <CardHeader className="pb-8 pt-10 px-10">
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                    <MessageSquare className="w-10 h-10 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold gradient-text mb-2">CRM Inteligente</CardTitle>
+                  <CardTitle className="text-3xl font-black gradient-text mb-4">CRM Inteligente</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    Gestão automatizada de leads, follow-ups inteligentes e pipeline de vendas que <span className="font-semibold text-primary">trabalha por você</span>.
+                <CardContent className="px-10 pb-10">
+                  <CardDescription className="text-lg leading-relaxed font-medium">
+                    Gestão automatizada de leads, follow-ups inteligentes e pipeline de vendas que <span className="font-bold text-primary">trabalha por você</span>.
                   </CardDescription>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-105 hover:shadow-[var(--shadow-card)] bg-gradient-to-br from-card to-primary/5 group animate-fade-in">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300 group-hover:scale-110">
-                    <Layout className="w-8 h-8 text-white" />
+              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
+                <CardHeader className="pb-8 pt-10 px-10">
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                    <Layout className="w-10 h-10 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold gradient-text mb-2">Landing Pages Otimizadas</CardTitle>
+                  <CardTitle className="text-3xl font-black gradient-text mb-4">Landing Pages Otimizadas</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    Páginas de alta conversão com IA integrada para captura e qualificação automática de <span className="font-semibold text-primary">leads</span>.
+                <CardContent className="px-10 pb-10">
+                  <CardDescription className="text-lg leading-relaxed font-medium">
+                    Páginas de alta conversão com IA integrada para captura e qualificação automática de <span className="font-bold text-primary">leads</span>.
                   </CardDescription>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-105 hover:shadow-[var(--shadow-card)] bg-gradient-to-br from-card to-primary/5 group animate-fade-in">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300 group-hover:scale-110">
-                    <Workflow className="w-8 h-8 text-white" />
+              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
+                <CardHeader className="pb-8 pt-10 px-10">
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                    <Workflow className="w-10 h-10 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold gradient-text mb-2">Workflows Personalizados</CardTitle>
+                  <CardTitle className="text-3xl font-black gradient-text mb-4">Workflows Personalizados</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    Automação completa de processos internos conectando todas as ferramentas que você <span className="font-semibold text-primary">já usa</span>.
+                <CardContent className="px-10 pb-10">
+                  <CardDescription className="text-lg leading-relaxed font-medium">
+                    Automação completa de processos internos conectando todas as ferramentas que você <span className="font-bold text-primary">já usa</span>.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -227,7 +231,7 @@ const Index = () => {
       </section>
 
       {/* Para Quem É Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-background via-secondary/20 to-background relative overflow-hidden">
+      <section className="py-32 md:py-48 bg-gradient-to-b from-background via-secondary/20 to-background relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.03),transparent_70%)]" />
         
         <div className="container mx-auto px-4 relative z-10">
