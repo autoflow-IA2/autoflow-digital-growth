@@ -5,6 +5,7 @@ import heroImage from "@/assets/hero-ai-art.png";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import AnimatedSection from "@/components/AnimatedSection";
+import { AnimatedHeader } from "@/components/AnimatedHeader";
 
 // Nova logo do Supabase
 const logoUrl = "https://iygvxnnumykapvaufncm.supabase.co/storage/v1/object/public/logo/logonova-Photoroom.png";
@@ -17,110 +18,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section - Design Moderno e Impactante */}
-      <section 
-        className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-32 sm:py-40"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Overlay sutil para contraste */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-secondary/30 to-transparent" />
-        
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-          <div className="max-w-6xl mx-auto text-center text-white space-y-12 sm:space-y-16">
-            
-            {/* Logo Section - Destaque máximo */}
-            <div className="flex justify-center items-center animate-fade-in mb-8 sm:mb-12">
-              <img 
-                src={logoUrl} 
-                alt="AutoFlow IA² - Automação Inteligente com IA" 
-                className="h-32 sm:h-40 md:h-52 lg:h-60 transition-all duration-500 hover:scale-110 hover:rotate-2" 
-                loading="eager"
-                width="240"
-                height="240"
-                aria-label="Logo AutoFlow IA²"
-                style={{ 
-                  backgroundColor: 'transparent',
-                  filter: 'drop-shadow(0 8px 32px rgba(255, 255, 255, 0.8)) drop-shadow(0 16px 64px rgba(139, 92, 246, 0.6)) brightness(1.2)',
-                }}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const fallback = document.createElement('div');
-                  fallback.className = 'h-32 sm:h-40 md:h-52 lg:h-60 flex items-center justify-center bg-transparent px-8';
-                  fallback.innerHTML = '<span class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white" style="text-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3);">AutoFlow IA²</span>';
-                  target.parentNode?.insertBefore(fallback, target);
-                }}
-              />
-            </div>
-
-            {/* Slogan/Tagline - Badge destaque */}
-            <div className="inline-block animate-scale-in">
-              <div className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl border-2 border-white/50 backdrop-blur-xl bg-white/15 shadow-2xl hover:scale-105 transition-all duration-300">
-                <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 text-accent animate-pulse" />
-                <span className="text-lg sm:text-xl lg:text-2xl font-extrabold text-white tracking-wide" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.5)' }}>
-                  Automação Inteligente com IA
-                </span>
-              </div>
-            </div>
-
-            {/* Headline Principal - Impacto máximo */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] animate-fade-in px-4 sm:px-8 max-w-5xl mx-auto" 
-                style={{ 
-                  textShadow: '0 8px 32px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.4), 0 0 60px rgba(139,92,246,0.4)',
-                  letterSpacing: '-0.03em'
-                }}>
-              <span className="text-white">Automatize</span> seus processos e{' '}
-              <span className="text-white">escale</span> seu negócio com{' '}
-              <span className="block mt-4 sm:mt-6 bg-gradient-to-r from-accent via-yellow-200 to-accent bg-clip-text text-transparent animate-shimmer" style={{ textShadow: 'none' }}>
-                Inteligência Artificial
-              </span>
-            </h1>
-
-            {/* Sub-headline/Descrição - Clareza e impacto */}
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/95 leading-[1.6] animate-fade-in max-w-5xl mx-auto px-4 font-semibold" 
-               style={{ textShadow: '0 4px 24px rgba(0,0,0,0.5), 0 2px 12px rgba(0,0,0,0.3)' }}>
-              Em <span className="font-black text-accent text-2xl sm:text-3xl md:text-4xl lg:text-5xl">30 minutos</span> nossa equipe irá analisar estrategicamente todos os processos do seu negócio e entregar um{' '}
-              <span className="font-black text-accent">plano de ação</span> para automatizar atendimento, agendamentos, CRM e muito mais.
-            </p>
-
-            {/* CTAs - Destaque máximo */}
-            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center items-center animate-fade-in pt-8 sm:pt-12 px-4">
-              <Button 
-                variant="gradient" 
-                size="2xl"
-                onClick={scrollToCTA}
-                className="w-full sm:w-auto min-w-[300px] text-xl sm:text-2xl font-black shadow-[0_16px_60px_rgba(139,92,246,0.7)] hover:shadow-[0_24px_80px_rgba(139,92,246,0.9)] hover:scale-110 hover:-translate-y-2 transition-all duration-300"
-              >
-                <Zap className="mr-3 h-7 w-7" />
-                Agendar Consultoria Gratuita
-              </Button>
-              <Button 
-                variant="outline" 
-                size="2xl"
-                onClick={scrollToCTA}
-                className="w-full sm:w-auto min-w-[280px] text-xl sm:text-2xl font-black bg-white hover:bg-white/95 text-primary border-4 border-white hover:scale-110 hover:-translate-y-2 transition-all duration-300 shadow-[0_12px_40px_rgba(255,255,255,0.5)]"
-              >
-                <MessageSquare className="mr-3 h-7 w-7" />
-                Falar com Especialista
-              </Button>
-            </div>
-
-            {/* Urgency Badge - Escassez destaque */}
-            <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-4 px-8 sm:px-12 py-5 sm:py-6 rounded-2xl backdrop-blur-xl bg-red-500 border-4 border-red-300/70 animate-pulse shadow-[0_12px_48px_rgba(239,68,68,0.6)] hover:scale-105 transition-all duration-300">
-              <span className="text-xl sm:text-2xl md:text-3xl font-black text-white text-center" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
-                🚨 Apenas 5 vagas restantes esta semana!
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom gradient transition */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
-      </section>
+      {/* Animated Header - Inspirado na imagem */}
+      <AnimatedHeader />
 
       {/* Automações que Oferecemos */}
       <section className="py-32 md:py-48 bg-gradient-to-b from-background via-[var(--gradient-tech)] to-background relative">

@@ -69,9 +69,9 @@ export const LeadCaptureForm = () => {
         `Solicitado em: ${new Date().toLocaleString('pt-BR')}`
       );
       
-      // Open WhatsApp in new tab
-      const whatsappNumber = "5511999999999"; // Replace with actual WhatsApp number
-      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+      // Open WhatsApp with your number in the same window
+      const whatsappNumber = "5511917302219"; // Seu WhatsApp: 11 91730-2219
+      window.location.href = `https://wa.me/${whatsappNumber}?text=${message}`;
       
       setIsSuccess(true);
       toast({
