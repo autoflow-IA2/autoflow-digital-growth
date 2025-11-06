@@ -4,6 +4,7 @@ import { Bot, Calendar, MessageSquare, Share2, Layout, Workflow, Zap, Sparkles }
 import heroImage from "@/assets/hero-ai-art.png";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import AnimatedSection from "@/components/AnimatedSection";
 
 // Nova logo do Supabase
 const logoUrl = "https://iygvxnnumykapvaufncm.supabase.co/storage/v1/object/public/logo/logonova-Photoroom.png";
@@ -127,104 +128,118 @@ const Index = () => {
         
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-24 sm:mb-32 space-y-8">
-              <div className="inline-flex items-center gap-3 px-8 py-4 bg-primary/15 text-primary rounded-2xl mb-6 border-2 border-primary/30 shadow-lg hover:scale-105 transition-all duration-300">
-                <Workflow className="w-6 h-6" />
-                <span className="text-lg font-bold">Nossas Soluções</span>
+            <AnimatedSection animation="fade-up" speed="slow">
+              <div className="text-center mb-24 sm:mb-32 space-y-8">
+                <div className="inline-flex items-center gap-3 px-8 py-4 bg-primary/15 text-primary rounded-2xl mb-6 border-2 border-primary/30 shadow-lg hover:scale-105 transition-all duration-300">
+                  <Workflow className="w-6 h-6" />
+                  <span className="text-lg font-bold">Nossas Soluções</span>
+                </div>
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-foreground mb-8 leading-tight">
+                  Automações que <span className="gradient-text">transformam</span> seu negócio
+                </h2>
+                <p className="text-2xl sm:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-medium">
+                  Integração completa de IA nos principais pontos de contato com seus clientes
+                </p>
+                <div className="w-32 h-2 bg-gradient-to-r from-primary via-secondary to-accent mx-auto rounded-full" />
               </div>
-              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-foreground mb-8 leading-tight">
-                Automações que <span className="gradient-text">transformam</span> seu negócio
-              </h2>
-              <p className="text-2xl sm:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-medium">
-                Integração completa de IA nos principais pontos de contato com seus clientes
-              </p>
-              <div className="w-32 h-2 bg-gradient-to-r from-primary via-secondary to-accent mx-auto rounded-full" />
-            </div>
+            </AnimatedSection>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12">
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
-                <CardHeader className="pb-8 pt-10 px-10">
-                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
-                    <Bot className="w-10 h-10 text-white" />
-                  </div>
-                  <CardTitle className="text-3xl font-black gradient-text mb-4">Atendimento Inteligente</CardTitle>
-                </CardHeader>
-                <CardContent className="px-10 pb-10">
-                  <CardDescription className="text-lg leading-relaxed font-medium">
-                    Chatbots com IA que atendem <span className="font-bold text-primary">24/7</span>, entendem contexto e resolvem dúvidas automaticamente via WhatsApp, site e redes sociais.
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="zoom-in" delay={0} speed="normal" easing="bounce">
+                <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group rounded-2xl overflow-hidden h-full">
+                  <CardHeader className="pb-8 pt-10 px-10">
+                    <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                      <Bot className="w-10 h-10 text-white" />
+                    </div>
+                    <CardTitle className="text-3xl font-black gradient-text mb-4">Atendimento Inteligente</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-10 pb-10">
+                    <CardDescription className="text-lg leading-relaxed font-medium">
+                      Chatbots com IA que atendem <span className="font-bold text-primary">24/7</span>, entendem contexto e resolvem dúvidas automaticamente via WhatsApp, site e redes sociais.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
-                <CardHeader className="pb-8 pt-10 px-10">
-                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
-                    <Calendar className="w-10 h-10 text-white" />
-                  </div>
-                  <CardTitle className="text-3xl font-black gradient-text mb-4">Agendamento Automático</CardTitle>
-                </CardHeader>
-                <CardContent className="px-10 pb-10">
-                  <CardDescription className="text-lg leading-relaxed font-medium">
-                    Sistema inteligente de agendamentos que sincroniza sua agenda, envia lembretes e reduz faltas em até <span className="font-bold text-primary">80%</span>.
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="zoom-in" delay={100} speed="normal" easing="bounce">
+                <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group rounded-2xl overflow-hidden h-full">
+                  <CardHeader className="pb-8 pt-10 px-10">
+                    <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                      <Calendar className="w-10 h-10 text-white" />
+                    </div>
+                    <CardTitle className="text-3xl font-black gradient-text mb-4">Agendamento Automático</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-10 pb-10">
+                    <CardDescription className="text-lg leading-relaxed font-medium">
+                      Sistema inteligente de agendamentos que sincroniza sua agenda, envia lembretes e reduz faltas em até <span className="font-bold text-primary">80%</span>.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
-                <CardHeader className="pb-8 pt-10 px-10">
-                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
-                    <Share2 className="w-10 h-10 text-white" />
-                  </div>
-                  <CardTitle className="text-3xl font-black gradient-text mb-4">Redes Sociais Automatizadas</CardTitle>
-                </CardHeader>
-                <CardContent className="px-10 pb-10">
-                  <CardDescription className="text-lg leading-relaxed font-medium">
-                    Publicações automáticas, respostas inteligentes e análise de engajamento para manter sua marca sempre <span className="font-bold text-primary">ativa</span>.
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="zoom-in" delay={200} speed="normal" easing="bounce">
+                <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group rounded-2xl overflow-hidden h-full">
+                  <CardHeader className="pb-8 pt-10 px-10">
+                    <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                      <Share2 className="w-10 h-10 text-white" />
+                    </div>
+                    <CardTitle className="text-3xl font-black gradient-text mb-4">Redes Sociais Automatizadas</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-10 pb-10">
+                    <CardDescription className="text-lg leading-relaxed font-medium">
+                      Publicações automáticas, respostas inteligentes e análise de engajamento para manter sua marca sempre <span className="font-bold text-primary">ativa</span>.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
-                <CardHeader className="pb-8 pt-10 px-10">
-                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
-                    <MessageSquare className="w-10 h-10 text-white" />
-                  </div>
-                  <CardTitle className="text-3xl font-black gradient-text mb-4">CRM Inteligente</CardTitle>
-                </CardHeader>
-                <CardContent className="px-10 pb-10">
-                  <CardDescription className="text-lg leading-relaxed font-medium">
-                    Gestão automatizada de leads, follow-ups inteligentes e pipeline de vendas que <span className="font-bold text-primary">trabalha por você</span>.
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="fade-up" delay={0} speed="normal">
+                <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group rounded-2xl overflow-hidden h-full">
+                  <CardHeader className="pb-8 pt-10 px-10">
+                    <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                      <MessageSquare className="w-10 h-10 text-white" />
+                    </div>
+                    <CardTitle className="text-3xl font-black gradient-text mb-4">CRM Inteligente</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-10 pb-10">
+                    <CardDescription className="text-lg leading-relaxed font-medium">
+                      Gestão automatizada de leads, follow-ups inteligentes e pipeline de vendas que <span className="font-bold text-primary">trabalha por você</span>.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
-                <CardHeader className="pb-8 pt-10 px-10">
-                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
-                    <Layout className="w-10 h-10 text-white" />
-                  </div>
-                  <CardTitle className="text-3xl font-black gradient-text mb-4">Landing Pages Otimizadas</CardTitle>
-                </CardHeader>
-                <CardContent className="px-10 pb-10">
-                  <CardDescription className="text-lg leading-relaxed font-medium">
-                    Páginas de alta conversão com IA integrada para captura e qualificação automática de <span className="font-bold text-primary">leads</span>.
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="fade-up" delay={100} speed="normal">
+                <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group rounded-2xl overflow-hidden h-full">
+                  <CardHeader className="pb-8 pt-10 px-10">
+                    <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                      <Layout className="w-10 h-10 text-white" />
+                    </div>
+                    <CardTitle className="text-3xl font-black gradient-text mb-4">Landing Pages Otimizadas</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-10 pb-10">
+                    <CardDescription className="text-lg leading-relaxed font-medium">
+                      Páginas de alta conversão com IA integrada para captura e qualificação automática de <span className="font-bold text-primary">leads</span>.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group animate-fade-in rounded-2xl overflow-hidden">
-                <CardHeader className="pb-8 pt-10 px-10">
-                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
-                    <Workflow className="w-10 h-10 text-white" />
-                  </div>
-                  <CardTitle className="text-3xl font-black gradient-text mb-4">Workflows Personalizados</CardTitle>
-                </CardHeader>
-                <CardContent className="px-10 pb-10">
-                  <CardDescription className="text-lg leading-relaxed font-medium">
-                    Automação completa de processos internos conectando todas as ferramentas que você <span className="font-bold text-primary">já usa</span>.
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="fade-up" delay={200} speed="normal">
+                <Card className="border-2 hover:border-primary transition-all duration-500 hover:scale-[1.08] hover:-translate-y-3 hover:shadow-[var(--shadow-card-hover)] bg-gradient-to-br from-card to-primary/8 group rounded-2xl overflow-hidden h-full">
+                  <CardHeader className="pb-8 pt-10 px-10">
+                    <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-8 group-hover:shadow-[var(--shadow-glow)] transition-all duration-500 group-hover:scale-125 group-hover:rotate-6">
+                      <Workflow className="w-10 h-10 text-white" />
+                    </div>
+                    <CardTitle className="text-3xl font-black gradient-text mb-4">Workflows Personalizados</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-10 pb-10">
+                    <CardDescription className="text-lg leading-relaxed font-medium">
+                      Automação completa de processos internos conectando todas as ferramentas que você <span className="font-bold text-primary">já usa</span>.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
           </div>
         </div>
@@ -236,81 +251,91 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-20">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-6 border border-primary/20">
-                <Workflow className="w-4 h-4" />
-                <span className="text-sm font-semibold">Público-Alvo</span>
+            <AnimatedSection animation="fade-down" speed="slow">
+              <div className="text-center mb-20">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-6 border border-primary/20">
+                  <Workflow className="w-4 h-4" />
+                  <span className="text-sm font-semibold">Público-Alvo</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  Para quem é a <span className="gradient-text">consultoria</span>
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full" />
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Para quem é a <span className="gradient-text">consultoria</span>
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full" />
-            </div>
+            </AnimatedSection>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="border-l-4 border-l-primary hover:shadow-[var(--shadow-card)] transition-all duration-500 bg-gradient-to-br from-card to-primary/5 group animate-slide-in-left">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
-                      <Zap className="w-7 h-7 text-white" />
+              <AnimatedSection animation="slide-in-left" speed="normal">
+                <Card className="border-l-4 border-l-primary hover:shadow-[var(--shadow-card)] transition-all duration-500 bg-gradient-to-br from-card to-primary/5 group h-full">
+                  <CardContent className="p-8">
+                    <div className="flex items-start gap-6">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
+                        <Zap className="w-7 h-7 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-3 gradient-text">Empresas em Crescimento</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Para negócios que querem <span className="font-semibold text-primary">escalar operações</span> sem aumentar proporcionalmente a equipe através de automação inteligente.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-3 gradient-text">Empresas em Crescimento</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Para negócios que querem <span className="font-semibold text-primary">escalar operações</span> sem aumentar proporcionalmente a equipe através de automação inteligente.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="border-l-4 border-l-primary hover:shadow-[var(--shadow-card)] transition-all duration-500 bg-gradient-to-br from-card to-primary/5 group animate-slide-in-right">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
-                      <Bot className="w-7 h-7 text-white" />
+              <AnimatedSection animation="slide-in-right" speed="normal">
+                <Card className="border-l-4 border-l-primary hover:shadow-[var(--shadow-card)] transition-all duration-500 bg-gradient-to-br from-card to-primary/5 group h-full">
+                  <CardContent className="p-8">
+                    <div className="flex items-start gap-6">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
+                        <Bot className="w-7 h-7 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-3 gradient-text">Processos Manuais Demais</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Para empresas que perdem tempo com <span className="font-semibold text-primary">tarefas repetitivas</span> que poderiam ser automatizadas com IA.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-3 gradient-text">Processos Manuais Demais</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Para empresas que perdem tempo com <span className="font-semibold text-primary">tarefas repetitivas</span> que poderiam ser automatizadas com IA.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="border-l-4 border-l-primary hover:shadow-[var(--shadow-card)] transition-all duration-500 bg-gradient-to-br from-card to-primary/5 group animate-slide-in-left">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
-                      <MessageSquare className="w-7 h-7 text-white" />
+              <AnimatedSection animation="slide-in-left" speed="normal" delay={100}>
+                <Card className="border-l-4 border-l-primary hover:shadow-[var(--shadow-card)] transition-all duration-500 bg-gradient-to-br from-card to-primary/5 group h-full">
+                  <CardContent className="p-8">
+                    <div className="flex items-start gap-6">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
+                        <MessageSquare className="w-7 h-7 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-3 gradient-text">Atendimento Sobrecarregado</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Para negócios que recebem muitas mensagens e não conseguem <span className="font-semibold text-primary">atender todos rapidamente</span>.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-3 gradient-text">Atendimento Sobrecarregado</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Para negócios que recebem muitas mensagens e não conseguem <span className="font-semibold text-primary">atender todos rapidamente</span>.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="border-l-4 border-l-primary hover:shadow-[var(--shadow-card)] transition-all duration-500 bg-gradient-to-br from-card to-primary/5 group animate-slide-in-right">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
-                      <Sparkles className="w-7 h-7 text-white" />
+              <AnimatedSection animation="slide-in-right" speed="normal" delay={100}>
+                <Card className="border-l-4 border-l-primary hover:shadow-[var(--shadow-card)] transition-all duration-500 bg-gradient-to-br from-card to-primary/5 group h-full">
+                  <CardContent className="p-8">
+                    <div className="flex items-start gap-6">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
+                        <Sparkles className="w-7 h-7 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-3 gradient-text">Visão de Inovação</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Para empresários que querem estar à frente da concorrência usando <span className="font-semibold text-primary">tecnologia de ponta</span>.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-3 gradient-text">Visão de Inovação</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Para empresários que querem estar à frente da concorrência usando <span className="font-semibold text-primary">tecnologia de ponta</span>.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
           </div>
         </div>
@@ -325,59 +350,67 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-20">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-6 border border-primary/20">
-                <Sparkles className="w-4 h-4" />
-                <span className="text-sm font-semibold">O Que Você Recebe</span>
+            <AnimatedSection animation="fade-up" speed="slow">
+              <div className="text-center mb-20">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-6 border border-primary/20">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="text-sm font-semibold">O Que Você Recebe</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  O que você <span className="gradient-text">leva na consultoria</span>
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full" />
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                O que você <span className="gradient-text">leva na consultoria</span>
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full" />
-            </div>
+            </AnimatedSection>
 
             <div className="space-y-8">
-              <Card className="border-2 border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-[var(--shadow-card)] bg-gradient-to-r from-primary/5 to-transparent group animate-fade-in">
-                <CardContent className="flex items-start gap-6 p-8">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
-                    <span className="text-white font-bold text-2xl">1</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3 gradient-text">Mapeamento Completo dos Processos</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      Análise detalhada de todos os processos manuais que podem ser <span className="font-semibold text-primary">automatizados</span>, identificando gargalos e oportunidades de melhoria imediata.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="fade-right" delay={0}>
+                <Card className="border-2 border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-[var(--shadow-card)] bg-gradient-to-r from-primary/5 to-transparent group">
+                  <CardContent className="flex items-start gap-6 p-8">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
+                      <span className="text-white font-bold text-2xl">1</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-3 gradient-text">Mapeamento Completo dos Processos</h3>
+                      <p className="text-muted-foreground text-lg leading-relaxed">
+                        Análise detalhada de todos os processos manuais que podem ser <span className="font-semibold text-primary">automatizados</span>, identificando gargalos e oportunidades de melhoria imediata.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="border-2 border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-[var(--shadow-card)] bg-gradient-to-r from-primary/5 to-transparent group animate-fade-in">
-                <CardContent className="flex items-start gap-6 p-8">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
-                    <span className="text-white font-bold text-2xl">2</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3 gradient-text">Estratégia de Automação Personalizada</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      Plano estratégico detalhando quais automações implementar primeiro para gerar o maior <span className="font-semibold text-primary">ROI e impacto</span> no seu negócio.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="fade-left" delay={100}>
+                <Card className="border-2 border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-[var(--shadow-card)] bg-gradient-to-r from-primary/5 to-transparent group">
+                  <CardContent className="flex items-start gap-6 p-8">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
+                      <span className="text-white font-bold text-2xl">2</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-3 gradient-text">Estratégia de Automação Personalizada</h3>
+                      <p className="text-muted-foreground text-lg leading-relaxed">
+                        Plano estratégico detalhando quais automações implementar primeiro para gerar o maior <span className="font-semibold text-primary">ROI e impacto</span> no seu negócio.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
 
-              <Card className="border-2 border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-[var(--shadow-card)] bg-gradient-to-r from-primary/5 to-transparent group animate-fade-in">
-                <CardContent className="flex items-start gap-6 p-8">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
-                    <span className="text-white font-bold text-2xl">3</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3 gradient-text">Roadmap de Implementação</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      Cronograma prático com etapas claras de implementação, estimativa de tempo e <span className="font-semibold text-primary">custo-benefício</span> de cada automação proposta.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+              <AnimatedSection animation="fade-right" delay={200}>
+                <Card className="border-2 border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-[var(--shadow-card)] bg-gradient-to-r from-primary/5 to-transparent group">
+                  <CardContent className="flex items-start gap-6 p-8">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all duration-300">
+                      <span className="text-white font-bold text-2xl">3</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-3 gradient-text">Roadmap de Implementação</h3>
+                      <p className="text-muted-foreground text-lg leading-relaxed">
+                        Cronograma prático com etapas claras de implementação, estimativa de tempo e <span className="font-semibold text-primary">custo-benefício</span> de cada automação proposta.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
           </div>
         </div>
@@ -389,42 +422,57 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="mb-16">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-6 border border-primary/20">
-                <Sparkles className="w-4 h-4" />
-                <span className="text-sm font-semibold">Por Que Escolher</span>
+            <AnimatedSection animation="blur-in" speed="slow">
+              <div className="mb-16">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-6 border border-primary/20">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="text-sm font-semibold">Por Que Escolher</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+                  Por que escolher a <span className="gradient-text">AutoFlow</span>?
+                </h2>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
-                Por que escolher a <span className="gradient-text">AutoFlow</span>?
-              </h2>
-            </div>
+            </AnimatedSection>
             
-            <div className="mb-16 space-y-8 max-w-4xl mx-auto">
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                Somos especialistas em <span className="font-bold text-primary">Inteligência Artificial aplicada a automação de processos</span>. Nossa missão é transformar negócios através da tecnologia, eliminando tarefas repetitivas e liberando sua equipe para o que realmente importa.
-              </p>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                Com a <span className="font-bold text-primary">AutoFlow IA²</span>, já ajudamos mais de <span className="font-bold text-accent">100 empresas</span> a reduzirem custos operacionais em até <span className="font-bold text-accent">60%</span> e aumentarem a satisfação de clientes através de atendimento automatizado 24/7.
-              </p>
-            </div>
+            <AnimatedSection animation="fade-up" speed="slow" delay={100}>
+              <div className="mb-16 space-y-8 max-w-4xl mx-auto">
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                  Somos especialistas em <span className="font-bold text-primary">Inteligência Artificial aplicada a automação de processos</span>. Nossa missão é transformar negócios através da tecnologia, eliminando tarefas repetitivas e liberando sua equipe para o que realmente importa.
+                </p>
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                  Com a <span className="font-bold text-primary">AutoFlow IA²</span>, já ajudamos mais de <span className="font-bold text-accent">100 empresas</span> a reduzirem custos operacionais em até <span className="font-bold text-accent">60%</span> e aumentarem a satisfação de clientes através de atendimento automatizado 24/7.
+                </p>
+              </div>
+            </AnimatedSection>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center p-8 rounded-2xl glass border border-primary/20 hover:border-primary/40 transition-all duration-300 group animate-scale-in">
-                <div className="text-5xl md:text-6xl font-bold gradient-text mb-4 group-hover:scale-110 transition-all duration-300">100+</div>
-                <div className="text-lg font-semibold text-muted-foreground">Empresas Atendidas</div>
-              </div>
-              <div className="text-center p-8 rounded-2xl glass border border-primary/20 hover:border-primary/40 transition-all duration-300 group animate-scale-in">
-                <div className="text-5xl md:text-6xl font-bold gradient-text mb-4 group-hover:scale-110 transition-all duration-300">60%</div>
-                <div className="text-lg font-semibold text-muted-foreground">Redução de Custos</div>
-              </div>
-              <div className="text-center p-8 rounded-2xl glass border border-primary/20 hover:border-primary/40 transition-all duration-300 group animate-scale-in">
-                <div className="text-5xl md:text-6xl font-bold gradient-text mb-4 group-hover:scale-110 transition-all duration-300">24/7</div>
-                <div className="text-lg font-semibold text-muted-foreground">Atendimento</div>
-              </div>
-              <div className="text-center p-8 rounded-2xl glass border border-primary/20 hover:border-primary/40 transition-all duration-300 group animate-scale-in">
-                <div className="text-5xl md:text-6xl font-bold gradient-text mb-4 group-hover:scale-110 transition-all duration-300">100%</div>
-                <div className="text-lg font-semibold text-muted-foreground">Gratuita</div>
-              </div>
+              <AnimatedSection animation="bounce-in" delay={0} easing="bounce">
+                <div className="text-center p-8 rounded-2xl glass border border-primary/20 hover:border-primary/40 transition-all duration-300 group">
+                  <div className="text-5xl md:text-6xl font-bold gradient-text mb-4 group-hover:scale-110 transition-all duration-300">100+</div>
+                  <div className="text-lg font-semibold text-muted-foreground">Empresas Atendidas</div>
+                </div>
+              </AnimatedSection>
+              
+              <AnimatedSection animation="bounce-in" delay={100} easing="bounce">
+                <div className="text-center p-8 rounded-2xl glass border border-primary/20 hover:border-primary/40 transition-all duration-300 group">
+                  <div className="text-5xl md:text-6xl font-bold gradient-text mb-4 group-hover:scale-110 transition-all duration-300">60%</div>
+                  <div className="text-lg font-semibold text-muted-foreground">Redução de Custos</div>
+                </div>
+              </AnimatedSection>
+              
+              <AnimatedSection animation="bounce-in" delay={200} easing="bounce">
+                <div className="text-center p-8 rounded-2xl glass border border-primary/20 hover:border-primary/40 transition-all duration-300 group">
+                  <div className="text-5xl md:text-6xl font-bold gradient-text mb-4 group-hover:scale-110 transition-all duration-300">24/7</div>
+                  <div className="text-lg font-semibold text-muted-foreground">Atendimento</div>
+                </div>
+              </AnimatedSection>
+              
+              <AnimatedSection animation="bounce-in" delay={300} easing="bounce">
+                <div className="text-center p-8 rounded-2xl glass border border-primary/20 hover:border-primary/40 transition-all duration-300 group">
+                  <div className="text-5xl md:text-6xl font-bold gradient-text mb-4 group-hover:scale-110 transition-all duration-300">Grátis</div>
+                  <div className="text-lg font-semibold text-muted-foreground">Consultoria</div>
+                </div>
+              </AnimatedSection>
             </div>
           </div>
         </div>

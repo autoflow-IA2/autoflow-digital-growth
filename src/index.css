@@ -152,10 +152,20 @@ All colors MUST be HSL.
     @apply text-base sm:text-lg leading-relaxed;
   }
 
+  /* Fade Animations */
   @keyframes fade-in {
     from {
       opacity: 0;
-      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
     }
     to {
       opacity: 1;
@@ -163,10 +173,44 @@ All colors MUST be HSL.
     }
   }
 
+  @keyframes fade-down {
+    from {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-left {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-right {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Slide Animations */
   @keyframes slide-in-left {
     from {
       opacity: 0;
-      transform: translateX(-30px);
+      transform: translateX(-60px);
     }
     to {
       opacity: 1;
@@ -177,7 +221,7 @@ All colors MUST be HSL.
   @keyframes slide-in-right {
     from {
       opacity: 0;
-      transform: translateX(30px);
+      transform: translateX(60px);
     }
     to {
       opacity: 1;
@@ -185,12 +229,150 @@ All colors MUST be HSL.
     }
   }
 
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scale Animations */
   @keyframes scale-in {
     from {
       opacity: 0;
-      transform: scale(0.9);
+      transform: scale(0.8);
     }
     to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes scale-up {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Zoom Animations */
+  @keyframes zoom-in {
+    from {
+      opacity: 0;
+      transform: scale(0);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes zoom-out {
+    from {
+      opacity: 0;
+      transform: scale(1.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Rotate Animations */
+  @keyframes rotate-in {
+    from {
+      opacity: 0;
+      transform: rotate(-180deg) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: rotate(0) scale(1);
+    }
+  }
+
+  @keyframes rotate-in-left {
+    from {
+      opacity: 0;
+      transform: rotate(-90deg) translateX(-40px);
+      transform-origin: left center;
+    }
+    to {
+      opacity: 1;
+      transform: rotate(0) translateX(0);
+      transform-origin: left center;
+    }
+  }
+
+  @keyframes rotate-in-right {
+    from {
+      opacity: 0;
+      transform: rotate(90deg) translateX(40px);
+      transform-origin: right center;
+    }
+    to {
+      opacity: 1;
+      transform: rotate(0) translateX(0);
+      transform-origin: right center;
+    }
+  }
+
+  /* Flip Animation */
+  @keyframes flip-in {
+    from {
+      opacity: 0;
+      transform: perspective(800px) rotateY(-90deg);
+    }
+    to {
+      opacity: 1;
+      transform: perspective(800px) rotateY(0);
+    }
+  }
+
+  /* Blur Animation */
+  @keyframes blur-in {
+    from {
+      opacity: 0;
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  /* Bounce Animation */
+  @keyframes bounce-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.3) translateY(60px);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.95);
+    }
+    100% {
       opacity: 1;
       transform: scale(1);
     }
@@ -223,8 +405,25 @@ All colors MUST be HSL.
     }
   }
 
+  /* Animation Classes */
   .animate-fade-in {
     animation: fade-in 0.8s ease-out forwards;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.8s ease-out forwards;
+  }
+
+  .animate-fade-down {
+    animation: fade-down 0.8s ease-out forwards;
+  }
+
+  .animate-fade-left {
+    animation: fade-left 0.8s ease-out forwards;
+  }
+
+  .animate-fade-right {
+    animation: fade-right 0.8s ease-out forwards;
   }
 
   .animate-slide-in-left {
@@ -235,8 +434,52 @@ All colors MUST be HSL.
     animation: slide-in-right 0.8s ease-out forwards;
   }
 
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out forwards;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.8s ease-out forwards;
+  }
+
   .animate-scale-in {
-    animation: scale-in 0.6s ease-out forwards;
+    animation: scale-in 0.8s ease-out forwards;
+  }
+
+  .animate-scale-up {
+    animation: scale-up 0.8s ease-out forwards;
+  }
+
+  .animate-zoom-in {
+    animation: zoom-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-zoom-out {
+    animation: zoom-out 0.8s ease-out forwards;
+  }
+
+  .animate-rotate-in {
+    animation: rotate-in 0.8s ease-out forwards;
+  }
+
+  .animate-rotate-in-left {
+    animation: rotate-in-left 0.8s ease-out forwards;
+  }
+
+  .animate-rotate-in-right {
+    animation: rotate-in-right 0.8s ease-out forwards;
+  }
+
+  .animate-flip-in {
+    animation: flip-in 0.8s ease-out forwards;
+  }
+
+  .animate-blur-in {
+    animation: blur-in 0.8s ease-out forwards;
+  }
+
+  .animate-bounce-in {
+    animation: bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
   }
 
   .animate-float {
@@ -253,24 +496,35 @@ All colors MUST be HSL.
     animation: shimmer 2s infinite;
   }
 
-  .animate-fade-in:nth-child(2) {
+  /* Stagger Animation Delays */
+  .animate-fade-in:nth-child(2),
+  .animate-fade-up:nth-child(2),
+  .animate-scale-in:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .animate-fade-in:nth-child(3),
+  .animate-fade-up:nth-child(3),
+  .animate-scale-in:nth-child(3) {
     animation-delay: 0.2s;
   }
 
-  .animate-fade-in:nth-child(3) {
+  .animate-fade-in:nth-child(4),
+  .animate-fade-up:nth-child(4),
+  .animate-scale-in:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  .animate-fade-in:nth-child(5),
+  .animate-fade-up:nth-child(5),
+  .animate-scale-in:nth-child(5) {
     animation-delay: 0.4s;
   }
 
-  .animate-fade-in:nth-child(4) {
-    animation-delay: 0.6s;
-  }
-
-  .animate-fade-in:nth-child(5) {
-    animation-delay: 0.8s;
-  }
-
-  .animate-fade-in:nth-child(6) {
-    animation-delay: 1s;
+  .animate-fade-in:nth-child(6),
+  .animate-fade-up:nth-child(6),
+  .animate-scale-in:nth-child(6) {
+    animation-delay: 0.5s;
   }
 
   /* Glass morphism effect */
