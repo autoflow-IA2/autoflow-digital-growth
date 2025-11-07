@@ -1,9 +1,39 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Bot } from "lucide-react";
+import { Bot, Zap } from "lucide-react";
 
 export const AnimatedHeader = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+    mediaQuery.addEventListener("change", handleChange);
+
+    // Intersection Observer to pause animation when not visible
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (canvasRef.current) {
+      observer.observe(canvasRef.current);
+    }
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+      observer.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -140,16 +170,35 @@ export const AnimatedHeader = () => {
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      time += 0.3;
+      if (!prefersReducedMotion && isVisible) {
+        time += 0.3;
+      }
 
       waves.forEach((wave) => {
         drawWave(wave, time, ctx);
       });
 
-      animationFrameId = requestAnimationFrame(animate);
+      if (!prefersReducedMotion && isVisible) {
+        animationFrameId = requestAnimationFrame(animate);
+      }
     };
 
-    animate();
+    if (!prefersReducedMotion && isVisible) {
+      animate();
+    } else {
+      // Single frame for reduced motion or when not visible
+      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      gradient.addColorStop(0, "#0A0419");
+      gradient.addColorStop(0.3, "#1A0B2E");
+      gradient.addColorStop(0.5, "#2D1B4E");
+      gradient.addColorStop(0.7, "#1A0B2E");
+      gradient.addColorStop(1, "#0A0419");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      waves.forEach((wave) => {
+        drawWave(wave, 0, ctx);
+      });
+    }
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
@@ -157,11 +206,11 @@ export const AnimatedHeader = () => {
         cancelAnimationFrame(animationFrameId);
       }
     };
-  }, []);
+  }, [isVisible, prefersReducedMotion]);
 
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20"
       style={{
         background: "linear-gradient(to bottom, #0A0419 0%, #1A0B2E 30%, #2D1B4E 50%, #1A0B2E 70%, #0A0419 100%)"
       }}
@@ -191,34 +240,66 @@ export const AnimatedHeader = () => {
 
           {/* Subtitle */}
           <p
-            className="text-lg sm:text-xl md:text-2xl font-semibold text-white/90 uppercase tracking-widest animate-fade-in"
+            className="text-lg sm:text-xl md:text-2xl font-semibold text-white/95 uppercase tracking-widest animate-fade-in"
             style={{
               animationDelay: "0.3s",
               textShadow: "0 2px 10px rgba(255, 255, 255, 0.3)",
             }}
           >
-            Intelligent Automation
+            Automação Inteligente
           </p>
 
-          {/* CTA Button - Teste nossos Agente */}
-          <div
-            className="animate-fade-in pt-8"
+          {/* Value Proposition */}
+          <p
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/95 max-w-4xl mx-auto px-4 font-semibold leading-relaxed animate-fade-in"
             style={{
-              animationDelay: "0.6s",
+              animationDelay: "0.5s",
+              textShadow: "0 2px 20px rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.3)",
             }}
           >
+            Automatize seus processos e{" "}
+            <span className="font-bold text-accent drop-shadow-[0_0_20px_rgba(250,204,21,0.5)]">
+              escale seu negócio
+            </span>{" "}
+            com Inteligência Artificial
+          </p>
+
+          {/* CTA Buttons */}
+          <div
+            className="animate-fade-in pt-8 flex flex-col sm:flex-row gap-4 justify-center items-center"
+            style={{
+              animationDelay: "0.7s",
+            }}
+          >
+            {/* Primary CTA */}
             <Button
-              asChild
+              onClick={() => {
+                const ctaSection = document.getElementById("cta-final");
+                ctaSection?.scrollIntoView({ behavior: "smooth" });
+              }}
               variant="gradient"
               size="xl"
               className="group relative overflow-hidden min-w-[280px] sm:min-w-[320px] bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 hover:from-purple-500 hover:via-pink-400 hover:to-purple-500 text-white border-2 border-white/30 shadow-[0_0_40px_rgba(168,85,247,0.6)] hover:shadow-[0_0_60px_rgba(236,72,153,0.8)] transition-all duration-500"
             >
+              <Zap className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300 text-white mr-3" />
+              <span className="text-lg sm:text-xl font-bold text-white">
+                Agendar Consultoria Gratuita
+              </span>
+            </Button>
+
+            {/* Secondary CTA */}
+            <Button
+              asChild
+              variant="outline"
+              size="xl"
+              className="group min-w-[240px] sm:min-w-[280px] bg-white/10 backdrop-blur-sm border-2 border-white/40 hover:bg-white/20 text-white hover:text-white"
+            >
               <a
                 href="https://portifolio.casalsmart.com/"
-                className="flex items-center gap-3 text-white"
+                className="flex items-center gap-3"
               >
-                <Bot className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300 text-white" />
-                <span className="text-lg sm:text-xl font-bold text-white">
+                <Bot className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                <span className="text-base sm:text-lg font-semibold">
                   Teste nossos Agentes
                 </span>
               </a>

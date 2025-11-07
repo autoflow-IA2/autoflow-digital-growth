@@ -7,10 +7,29 @@ import { CheckCircle2, Loader2, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
+// Phone mask function
+const maskPhone = (value: string): string => {
+  const numbers = value.replace(/\D/g, "");
+  if (numbers.length <= 10) {
+    return numbers.replace(/(\d{2})(\d{4})(\d{0,4})/, (_, ddd, first, second) => {
+      if (second) return `(${ddd}) ${first}-${second}`;
+      if (first) return `(${ddd}) ${first}`;
+      if (ddd) return `(${ddd}`;
+      return numbers;
+    });
+  }
+  return numbers.replace(/(\d{2})(\d{5})(\d{0,4})/, (_, ddd, first, second) => {
+    if (second) return `(${ddd}) ${first}-${second}`;
+    if (first) return `(${ddd}) ${first}`;
+    if (ddd) return `(${ddd}`;
+    return numbers;
+  });
+};
+
 const leadSchema = z.object({
   name: z.string().trim().min(2, "Nome deve ter pelo menos 2 caracteres").max(100),
   email: z.string().trim().email("Email inválido").max(255),
-  phone: z.string().trim().min(10, "Telefone inválido").max(20),
+  phone: z.string().trim().min(14, "Telefone inválido").max(15), // (11) 99999-9999 = 15 chars
   company: z.string().trim().min(2, "Nome da empresa deve ter pelo menos 2 caracteres").max(100),
 });
 
@@ -29,7 +48,14 @@ export const LeadCaptureForm = () => {
   const { toast } = useToast();
 
   const handleChange = (field: keyof LeadFormData) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData(prev => ({ ...prev, [field]: e.target.value }));
+    let value = e.target.value;
+    
+    // Apply phone mask
+    if (field === "phone") {
+      value = maskPhone(value);
+    }
+    
+    setFormData(prev => ({ ...prev, [field]: value }));
     // Clear error when user starts typing
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: "" }));
@@ -69,21 +95,21 @@ export const LeadCaptureForm = () => {
         `Solicitado em: ${new Date().toLocaleString('pt-BR')}`
       );
       
-      // Open WhatsApp with your number in the same window
+      // Open WhatsApp in new tab (keeps page open)
       const whatsappNumber = "5511917302219"; // Seu WhatsApp: 11 91730-2219
-      window.location.href = `https://wa.me/${whatsappNumber}?text=${message}`;
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
       
       setIsSuccess(true);
       toast({
         title: "Solicitação enviada!",
-        description: "Em breve entraremos em contato via WhatsApp.",
+        description: "Abrindo WhatsApp. Nossa equipe responderá em até 30 minutos!",
       });
       
-      // Reset form after 3 seconds
+      // Reset form after 5 seconds
       setTimeout(() => {
         setFormData({ name: "", email: "", phone: "", company: "" });
         setIsSuccess(false);
-      }, 3000);
+      }, 5000);
       
     } catch (error) {
       toast({
@@ -145,6 +171,7 @@ export const LeadCaptureForm = () => {
               disabled={isSubmitting}
               aria-invalid={!!errors.name}
               aria-describedby={errors.name ? "name-error" : undefined}
+              autoComplete="name"
             />
             {errors.name && (
               <p id="name-error" className="text-sm text-destructive" role="alert">
@@ -167,6 +194,7 @@ export const LeadCaptureForm = () => {
               disabled={isSubmitting}
               aria-invalid={!!errors.company}
               aria-describedby={errors.company ? "company-error" : undefined}
+              autoComplete="organization"
             />
             {errors.company && (
               <p id="company-error" className="text-sm text-destructive" role="alert">
@@ -190,6 +218,7 @@ export const LeadCaptureForm = () => {
                 disabled={isSubmitting}
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? "email-error" : undefined}
+                autoComplete="email"
               />
               {errors.email && (
                 <p id="email-error" className="text-sm text-destructive" role="alert">
@@ -212,6 +241,8 @@ export const LeadCaptureForm = () => {
                 disabled={isSubmitting}
                 aria-invalid={!!errors.phone}
                 aria-describedby={errors.phone ? "phone-error" : undefined}
+                autoComplete="tel"
+                maxLength={15}
               />
               {errors.phone && (
                 <p id="phone-error" className="text-sm text-destructive" role="alert">

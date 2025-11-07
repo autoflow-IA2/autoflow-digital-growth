@@ -6,6 +6,8 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import { AnimatedHeader } from "@/components/AnimatedHeader";
+import { Navbar } from "@/components/Navbar";
+import { FloatingCTA } from "@/components/FloatingCTA";
 
 // Nova logo do Supabase
 const logoUrl = "https://iygvxnnumykapvaufncm.supabase.co/storage/v1/object/public/logo/logonova-Photoroom.png";
@@ -18,11 +20,17 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Navbar */}
+      <Navbar />
+
       {/* Animated Header - Inspirado na imagem */}
       <AnimatedHeader />
 
+      {/* Floating CTA */}
+      <FloatingCTA />
+
       {/* Automações que Oferecemos */}
-      <section className="py-32 md:py-48 bg-gradient-to-b from-background via-[var(--gradient-tech)] to-background relative">
+      <section id="solucoes" className="py-32 md:py-48 bg-gradient-to-b from-background via-[var(--gradient-tech)] to-background relative scroll-mt-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(270_70%_50%_/_0.1),transparent_50%)]" />
         
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
@@ -289,7 +297,9 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <TestimonialsSection />
+      <section id="depoimentos">
+        <TestimonialsSection />
+      </section>
 
       {/* O Que Você Leva Section */}
       <section className="py-20 md:py-32 bg-gradient-to-b from-background via-primary/5 to-background relative overflow-hidden">
@@ -364,7 +374,7 @@ const Index = () => {
       </section>
 
       {/* Sobre Nós Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-primary/5 via-background to-primary/5 relative overflow-hidden">
+      <section id="sobre" className="py-20 md:py-32 bg-gradient-to-b from-primary/5 via-background to-primary/5 relative overflow-hidden scroll-mt-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.03),transparent_70%)]" />
         
         <div className="container mx-auto px-4 relative z-10">
@@ -426,7 +436,7 @@ const Index = () => {
       </section>
 
       {/* CTA Final Section with Form */}
-      <section id="cta-final" className="py-20 md:py-32 relative overflow-hidden">
+      <section id="cta-final" className="py-20 md:py-32 relative overflow-hidden scroll-mt-20">
         <div 
           className="absolute inset-0"
           style={{
