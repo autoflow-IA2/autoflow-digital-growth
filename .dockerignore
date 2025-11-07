@@ -1,0 +1,57 @@
+# Dependências
+node_modules
+npm-debug.log
+yarn-error.log
+bun.lockb
+
+# Build outputs
+dist
+build
+.next
+out
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env*.local
+
+# Arquivos de desenvolvimento
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testes
+coverage
+.nyc_output
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Documentação
+README.md
+*.md
+docs
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+
+# Outros
+*.log
+.cache
+.temp
+tmp
+
