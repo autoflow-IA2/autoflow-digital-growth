@@ -96,7 +96,7 @@ export const LeadCaptureForm = () => {
       );
       
       // Open WhatsApp in new tab (keeps page open)
-      const whatsappNumber = "5511917302219"; // Seu WhatsApp: 11 91730-2219
+      const whatsappNumber = "5511991175736"; // Seu WhatsApp: 11 99117-5736
       window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
       
       setIsSuccess(true);

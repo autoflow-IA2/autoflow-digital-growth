@@ -37,7 +37,7 @@ export const FloatingCTA = () => {
       {/* WhatsApp Quick Action */}
       <Button
         onClick={() => {
-          const whatsappNumber = "5511917302219";
+          const whatsappNumber = "5511991175736";
           window.open(`https://wa.me/${whatsappNumber}`, "_blank");
         }}
         variant="outline"
