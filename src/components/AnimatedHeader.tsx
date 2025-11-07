@@ -295,7 +295,7 @@ export const AnimatedHeader = () => {
               className="group min-w-[240px] sm:min-w-[280px] bg-white/10 backdrop-blur-sm border-2 border-white/40 hover:bg-white/20 text-white hover:text-white"
             >
               <a
-                href="https://portifolio.casalsmart.com/"
+                href="https://portifolio.autoflowia2.com.br/"
                 className="flex items-center gap-3"
               >
                 <Bot className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
