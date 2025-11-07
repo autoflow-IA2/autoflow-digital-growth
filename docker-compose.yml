@@ -19,11 +19,11 @@ services:
       # Adicione variáveis de ambiente aqui se necessário
       # REACT_APP_API_URL: ${REACT_APP_API_URL:-}
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/"]
+      test: ["CMD", "curl", "-f", "http://localhost:80/"]
       interval: 30s
       timeout: 3s
       retries: 3
-      start_period: 5s
+      start_period: 10s
     networks:
       - app-network
 
